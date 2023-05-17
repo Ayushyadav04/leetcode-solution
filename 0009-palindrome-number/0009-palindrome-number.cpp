@@ -5,14 +5,15 @@ public:
             return false;
         }
         else{
-            string z=to_string(x);
-            int i=0;
-            int j=z.size()-1;
-            while(i<=j){
-                if(z[i]!=z[j]){
-                    return false;
-                }
-                i++;j--;
+            int z=x;
+            long int i=0;
+            while(x>0){
+                i*=10;
+                i+=(x%10);
+                x=x/10;
+            }
+            if(z!=i){
+                return false;
             }
         }
         return true;

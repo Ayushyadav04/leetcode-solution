@@ -22,38 +22,38 @@ public:
     // }
 
 
-    // void small(TreeNode* root,vector<int>& v){
-    //     if(!root){
-    //         return;
-    //     }
-    //     small(root->left,v);
-    //     v.push_back(root->val);
-    //     small(root->right,v);
-    // }
-
-    void small(TreeNode* root,int &ans,int &count,int k){
-        if(!root)  return;
-        small(root->left,ans,count,k);
-        count++;
-        if(count==k){
-            ans=root->val;
+    void small(TreeNode* root,vector<int>& v){
+        if(!root){
             return;
         }
-        small(root->right,ans,count,k);
+        small(root->left,v);
+        v.push_back(root->val);
+        small(root->right,v);
     }
+
+    // void small(TreeNode* root,int &ans,int &count,int k){
+    //     if(!root)  return;
+    //     small(root->left,ans,count,k);
+    //     count++;
+    //     if(count==k){
+    //         ans=root->val;
+    //         return;
+    //     }
+    //     small(root->right,ans,count,k);
+    // }
     int kthSmallest(TreeNode* root, int k) {
         // vector<int> v;
         // small(root,v);
         // sort(v.begin(),v.end());
         // return v[k-1];
         
-        // vector<int> v;
-        // small(root,v);
-        // return v[k-1];
+        vector<int> v;
+        small(root,v);
+        return v[k-1];
 
-        int count=0;
-        int ans;
-        small(root,ans,count,k);
-        return ans;
+        // int count=0;
+        // int ans;
+        // small(root,ans,count,k);
+        // return ans;
     }
 };

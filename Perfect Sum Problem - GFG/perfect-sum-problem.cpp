@@ -24,7 +24,7 @@ class Solution{
                 }
             }
         }
-        return dp[n][sum]%mod;
+        return dp[n][sum];
 	}
 	  
 };
